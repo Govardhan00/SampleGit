@@ -6,8 +6,8 @@ import com.incentive.entities.CarCompany;
 
 public interface CarCompanyService {
 	void addCarCompany(CarCompany comp);
-	List viewIncentiveDetails(int IncentiveDetails); 
-	int viewDealerId(int DealerId);
-	List viewCustomerDetails(int CustomerDetails);
+	List viewIncentiveDetails(int incentivedetails); 
+	String viewDealerId(int dealerid);
+	List  viewCustomerDetails(int customerdetails);
 
 }
