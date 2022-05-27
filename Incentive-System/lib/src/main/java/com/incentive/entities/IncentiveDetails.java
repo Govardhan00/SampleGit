@@ -8,6 +8,8 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
+import javax.persistence.OneToMany;
+import javax.persistence.OneToOne;
 import javax.persistence.Table;
 
 @Entity
@@ -16,43 +18,68 @@ public class IncentiveDetails {
 	@Id
 	@GeneratedValue(strategy = GenerationType.SEQUENCE)
 	private int incentiveId;
-	@JoinColumn
-	private int dealerId;
-	@Column
-	private Date bookingDate;
-	@Column
+	@OneToOne
+	@JoinColumn(name = "bookingId")
+	private BookingDetails bd;
+	@OneToOne
+	@JoinColumn(name= "dealerId")
+	private CarDealer cd;
+	@Column(name="targetSales")
+	private double targetSales;
+	@Column(name="actualSales")
+	private double actualSales;
+	@Column(name = "incentiveRate")
+	private double incentiveRate;
+	@Column(name ="incentive")
 	private double incentive;
-
+	
+	
+	
 	public int getIncentiveId() {
 		return incentiveId;
 	}
-
 	public void setIncentiveId(int incentiveId) {
 		this.incentiveId = incentiveId;
 	}
-
-	public int getDealerId() {
-		return dealerId;
+	public BookingDetails getBd() {
+		return bd;
 	}
-
-	public void setDealerId(int dealerId) {
-		this.dealerId = dealerId;
+	public void setBd(BookingDetails bd) {
+		this.bd = bd;
 	}
-
-	public Date getBookingDate() {
-		return bookingDate;
+	public CarDealer getCd() {
+		return cd;
 	}
-
-	public void setBookingDate(Date bookingDate) {
-		this.bookingDate = bookingDate;
+	public void setCd(CarDealer cd) {
+		this.cd = cd;
 	}
-
+	public double getTargetSales() {
+		return targetSales;
+	}
+	public void setTargetSales(double targetSales) {
+		this.targetSales = targetSales;
+	}
+	public double getActualSales() {
+		return actualSales;
+	}
+	public void setActualSales(double actualSales) {
+		this.actualSales = actualSales;
+	}
+	public double getIncentiveRate() {
+		return incentiveRate;
+	}
+	public void setIncentiveRate(double incentiveRate) {
+		this.incentiveRate = incentiveRate;
+	}
 	public double getIncentive() {
 		return incentive;
 	}
-
 	public void setIncentive(double incentive) {
 		this.incentive = incentive;
 	}
+	
+	
+
+	
 
 }
