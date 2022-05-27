@@ -18,9 +18,9 @@ public class CarDetails {
 	@Column(name = "carmodel", length = 30)
 	private String carModel;
 	@Column
-	private double price;
+	private double carprice;
 	@Column(name = "specification", length = 100)
-	private String specifications;
+	private String carspecifications;
 
 	public int getCarChassisNumber() {
 		return carChassisNo;
@@ -39,19 +39,19 @@ public class CarDetails {
 	}
 
 	public double getPrice() {
-		return price;
+		return carprice;
 	}
 
 	public void setPrice(double price) {
-		this.price = price;
+		this.carprice = price;
 	}
 
 	public String getSpecifications() {
-		return specifications;
+		return carspecifications;
 	}
 
 	public void setSpecifications(String specifications) {
-		this.specifications = specifications;
+		this.carspecifications = specifications;
 	}
 
 }
