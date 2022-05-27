@@ -1,57 +1,38 @@
 package com.incentive.entities;
 
+import java.util.List;
+
 import javax.persistence.Column;
 import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
-import javax.persistence.JoinColumn;
-import javax.persistence.OneToOne;
-import javax.persistence.SequenceGenerator;
+
 import javax.persistence.Table;
 
 @Entity
 @Table(name = "carcompany")
 public class CarCompany {
-	@Id
-	@SequenceGenerator(name = "dealer_seq", initialValue = 10001, sequenceName = "dealer_seq", allocationSize = 1)
-	@GeneratedValue(generator = "dealer_seq", strategy = GenerationType.SEQUENCE)
-	private int dealerId;
-
-	@Column
-	private int noOfBooking;
-
-	@OneToOne
-	@JoinColumn(name = "incentiveId")
-	private IncentiveDetails incentive;
-
-	public IncentiveDetails getIncentive() {
-		return incentive;
+	@Column(name="carcompanyname",length=30)
+	private String carCompanyName;
+	
+	@Column(name="carmodel",length=30)
+	List<String> carModel;
+	List<Integer> carChasisno;
+	public String getCarCompanyName() {
+		return carCompanyName;
 	}
-
-	public void setIncentive(IncentiveDetails incentive) {
-		this.incentive = incentive;
+	public void setCarCompanyName(String carCompanyName) {
+		this.carCompanyName = carCompanyName;
 	}
-
-	public int getDealerId() {
-		return dealerId;
+	public List<String> getCarModel() {
+		return carModel;
 	}
-
-	public void setDealerId(int dealerId) {
-		this.dealerId = dealerId;
+	public void setCarModel(List<String> carModel) {
+		this.carModel = carModel;
 	}
-
-	public int getNoOfBooking() {
-		return noOfBooking;
+	public List<Integer> getCarChasisno() {
+		return carChasisno;
 	}
-
-	public void setNoOfBooking(int noOfBooking) {
-		this.noOfBooking = noOfBooking;
+	public void setCarChasisno(List<Integer> carChasisno) {
+		this.carChasisno = carChasisno;
 	}
-
-	@Override
-	public String toString() {
-		return "CarCompany [dealerId=" + dealerId + ", noOfBooking=" + noOfBooking + "]";
-	}
-
+	
 }
